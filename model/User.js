@@ -1,6 +1,6 @@
-const mongoose=require('mongoose');
+let mongoose = require('mongoose');
 
-const userSchema=new mongoose.Schema({
+let userSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -19,10 +19,13 @@ const userSchema=new mongoose.Schema({
     },
     role:{
         type:String,
-        default:'user'
+        default: 'user'
+    },
+    cart:{
+        type:mongoose.Schema.ObjectId,
+        ref:'Cart'
     }
 })
 
-
-let User=mongoose.model('User',userSchema);
-module.exports={User};
+let User = mongoose.model('User',userSchema);
+module.exports = {User};
